@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Alarm : MonoBehaviour
 {
     [SerializeField] private float _speedSounChangesTime;
@@ -9,6 +10,9 @@ public class Alarm : MonoBehaviour
 
     private AudioSource _audio;
     private bool _haveThief;
+
+    private float _minVolume = 0f;
+    private float _maxVolume = 1f;
 
     private void Awake()
     {
@@ -23,17 +27,21 @@ public class Alarm : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) 
     {
-        _speedSounChangesCurrentTime = 0;
-        _haveThief = true;
+        if (collision.gameObject.tag == "Thief")
+        {
+            _speedSounChangesCurrentTime = 0;
+            _haveThief = true;
+        }
     }
-
 
     private void OnTriggerExit2D(Collider2D collision) 
     {
-        _speedSounChangesCurrentTime = 0;
-        _haveThief = false;
+        if (collision.gameObject.tag == "Thief")
+        {
+            _speedSounChangesCurrentTime = 0;
+            _haveThief = false;
+        }
     }
-    
 
     private void Update()
     {
@@ -41,11 +49,11 @@ public class Alarm : MonoBehaviour
 
         if (_haveThief)
         {
-            SetVolume(0, 1, _speedSounChangesCurrentTime / _speedSounChangesTime);
+            SetVolume(_minVolume, _maxVolume, _speedSounChangesCurrentTime / _speedSounChangesTime);
         }
         else if(_haveThief == false)
         {
-            SetVolume(_audio.volume, 0, _speedSounChangesCurrentTime / _speedSounChangesTime);
+            SetVolume(_audio.volume, _minVolume, _speedSounChangesCurrentTime / _speedSounChangesTime);
         } 
     }
 }
