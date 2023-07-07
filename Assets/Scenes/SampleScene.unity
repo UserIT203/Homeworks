@@ -362,9 +362,9 @@ GameObject:
   - component: {fileID: 831523436}
   - component: {fileID: 831523435}
   - component: {fileID: 831523434}
-  - component: {fileID: 831523433}
   - component: {fileID: 831523437}
   - component: {fileID: 831523438}
+  - component: {fileID: 831523439}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Thief
@@ -372,20 +372,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &831523433
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 831523432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be863b60d4cbb9240919d60f6d404109, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _path: {fileID: 1615123071}
-  _speed: 2
 --- !u!95 &831523434
 Animator:
   serializedVersion: 4
@@ -520,6 +506,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &831523439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831523432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca7be70e5032e94c967a422f03e660e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _path: {fileID: 1615123071}
+  _speed: 2
 --- !u!1 &855068818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,6 +1484,7 @@ GameObject:
   - component: {fileID: 1996613895}
   - component: {fileID: 1996613898}
   - component: {fileID: 1996613897}
+  - component: {fileID: 1996613900}
   - component: {fileID: 1996613899}
   m_Layer: 0
   m_Name: House
@@ -1569,7 +1570,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 79320041e2b6b8649a172b143a35c90d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5ef912edcf80a07438eff4635b0f092d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1690,7 +1691,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1996613894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5884a355ab9a56f4b976005efd5ef7b6, type: 3}
+  m_Script: {fileID: 11500000, guid: ac83cc49d60b9f74a81092e3ead3b91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speedSounChangesTime: 0.0015
+--- !u!114 &1996613900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1996613894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978bfaf9443d57342be2415b9afd7564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedSounChangesTime: 0.2
+  _timeDelay: 1
