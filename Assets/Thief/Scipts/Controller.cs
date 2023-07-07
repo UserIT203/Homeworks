@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Move : MonoBehaviour
+public class Controller : MonoBehaviour
 {
     [SerializeField] private Transform _path;
     [SerializeField] private float _speed;
@@ -10,11 +10,8 @@ public class Move : MonoBehaviour
     private Transform[] _points;
     private int _currentPoints;
 
-    private Animator _animator;
-
     private void Start()
     {
-        _animator = GetComponent<Animator>();
         _points = new Transform[_path.childCount];
 
         for (int i = 0; i < _path.childCount; i++)
